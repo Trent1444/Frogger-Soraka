@@ -3,9 +3,9 @@ let playerPosition = 0;
 
 for (let i = 1; i <= 121; i++) {
   let gridItem = document.createElement("div");
-  gridItem.classList.add("test");
-  gridContainer.append("gridItem");
-  console.log(i);
+  gridItem.classList.add("grid-item");
+  gridItem.setAttribute("id", `grid-item${i}`);
+  gridContainer.append(gridItem);
 }
 
 movePlayer = (e) => {
@@ -14,6 +14,16 @@ movePlayer = (e) => {
       playerPosition -= 1;
       console.log(playerPosition);
       break;
+    case "ArrowRight":
+      playerPosition += 1;
+      break;
+    case "ArrowUp":
+      playerPosition -= 11;
+      break;
+    case "ArrowDown":
+      playerPosition += 11;
+      break;
   }
 };
+
 document.addEventListener("keyup", movePlayer);
